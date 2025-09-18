@@ -1,3 +1,11 @@
+# 1.0.0 (2025-09-18)
+
+
+### Features
+
+* add automated release system with semantic-release ([a67af75](https://github.com/antancelin/express-ts-backend-boilerplate/commit/a67af7559e6008e32cca9b2a0e0d66834cc789bc))
+* initial Express TypeScript boilerplate setup ([d760fa9](https://github.com/antancelin/express-ts-backend-boilerplate/commit/d760fa94cfeda6b7eb9677d86f9fe9e872623608))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

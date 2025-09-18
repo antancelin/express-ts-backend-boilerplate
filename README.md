@@ -5,7 +5,7 @@
 ## Quick Start
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/antancelin/express-ts-backend-boilerplate
 cd express-ts-backend-boilerplate
 npm install
 cp .env.example .env

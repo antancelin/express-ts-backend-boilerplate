@@ -4,9 +4,12 @@
 
 ## Quick Start
 
+> **💡 This is a GitHub template!** Click **"Use this template"** above to create your own project.
+
 ```bash
-git clone https://github.com/antancelin/express-ts-backend-boilerplate
-cd express-ts-backend-boilerplate
+# After creating your project from template:
+git clone https://github.com/YOUR_USERNAME/YOUR_NEW_PROJECT
+cd YOUR_NEW_PROJECT
 npm install
 cp .env.example .env
 npm run dev
@@ -93,12 +96,31 @@ npm install mongoose
 npm install pg @types/pg
 ```
 
-## Usage as Template
+## 🚀 Use as Template
 
-1. Click "Use this template" on GitHub
-2. Clone your new repository
-3. Run `npm install`
-4. Start coding! 🚀
+### For New Projects (Recommended)
+
+1. Click the **"Use this template"** button above
+2. Create your new repository with a custom name
+3. Clone and set up your project:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_NEW_PROJECT
+   cd YOUR_NEW_PROJECT
+   npm install
+   cp .env.example .env  # Configure your environment
+   npm run dev
+   ```
+4. Start building your API! 🎉
+
+### For Template Development
+
+If you want to improve this template itself:
+
+1. **Fork** this repository
+2. Make your improvements
+3. Submit a **pull request**
+
+> **💡 Tip:** Use "Use this template" for your projects, "Fork" only to contribute back to this template.
 
 ## Release System
 

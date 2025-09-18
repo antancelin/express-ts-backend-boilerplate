@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/antancelin/express-ts-backend-boilerplate/compare/v1.0.0...v1.0.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* update commit-analyzer configuration with custom release rules ([edfd3d3](https://github.com/antancelin/express-ts-backend-boilerplate/commit/edfd3d308b9f77f7a4f1f5c601357f6de1b9b232))
+
 # 1.0.0 (2025-09-18)
 
 

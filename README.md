@@ -131,7 +131,7 @@ This project uses **automated semantic releases** with GitHub Actions:
 Use conventional commits for automatic versioning:
 
 ```bash
-feat: add new feature        # → minor version bump (1.0.0 → 1.1.0)
+feat: add new feature       # → minor version bump (1.0.0 → 1.1.0)
 fix: fix a bug              # → patch version bump (1.0.0 → 1.0.1)
 docs: update documentation  # → patch version bump
 chore: update dependencies  # → patch version bump

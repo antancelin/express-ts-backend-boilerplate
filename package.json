@@ -1,6 +1,6 @@
 {
   "name": "express-ts-backend-boilerplate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "description": "A modern Express.js backend boilerplate with TypeScript for web projects",
   "license": "MIT",

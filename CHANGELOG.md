@@ -1,3 +1,5 @@
+## [1.0.5](https://github.com/antancelin/express-ts-backend-boilerplate/compare/v1.0.4...v1.0.5) (2025-10-11)
+
 ## [1.0.4](https://github.com/antancelin/express-ts-backend-boilerplate/compare/v1.0.3...v1.0.4) (2025-09-20)
 
 ## [1.0.3](https://github.com/antancelin/express-ts-backend-boilerplate/compare/v1.0.2...v1.0.3) (2025-09-18)

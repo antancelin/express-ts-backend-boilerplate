@@ -1,6 +1,11 @@
 # Express TypeScript Backend Boilerplate
 
-🚀 A ready-to-use boilerplate for quickly creating Express backends with TypeScript.
+A ready-to-use boilerplate for quickly creating Express backends with TypeScript.
+
+## Requirements
+
+- Node.js >= 18.18.0
+- npm or yarn
 
 ## Quick Start
 
@@ -25,6 +30,13 @@ Your server will be running at `http://localhost:3000` 🎉
 - `npm run build` - TypeScript compilation
 - `npm run start` - Production mode
 - `npm run clean` - Clean dist folder
+
+### Code Quality
+
+- `npm run lint` - Run ESLint to check code quality
+- `npm run lint:fix` - Fix ESLint issues automatically
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting without modifying files
 
 ### Release & Commits
 
@@ -63,11 +75,17 @@ NODE_ENV=development
 
 ### Core Framework
 
-✅ **Express.js** - Fast web framework  
-✅ **TypeScript** - Type safety  
+✅ **Express.js 5.x** - Fast and modern web framework  
+✅ **TypeScript** - Type safety and better developer experience  
 ✅ **CORS** - Cross-origin resource sharing  
-✅ **dotenv** - Environment variables  
-✅ **Nodemon** - Auto-restart in development
+✅ **dotenv** - Environment variables management  
+✅ **tsx** - Fast TypeScript execution with auto-reload
+
+### Code Quality
+
+✅ **ESLint** - Code linting with TypeScript support  
+✅ **Prettier** - Opinionated code formatter  
+✅ **Flat Config** - Modern ESLint configuration (eslint.config.mjs)
 
 ### Release Management
 
@@ -96,7 +114,7 @@ npm install mongoose
 npm install pg @types/pg
 ```
 
-## 🚀 Use as Template
+## Use as Template
 
 ### For New Projects (Recommended)
 

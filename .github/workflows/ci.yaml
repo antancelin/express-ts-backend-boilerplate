@@ -1,26 +1,19 @@
-name: Release
+name: CI
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  release:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,8 +35,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Release
-        run: npm run semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

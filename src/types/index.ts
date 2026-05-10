@@ -4,11 +4,7 @@ export interface AppError extends Error {
   publicMessage: string;
 }
 
-export function createAppError(
-  status: number,
-  code: string,
-  publicMessage: string
-): AppError {
+export function createAppError(status: number, code: string, publicMessage: string): AppError {
   const error = new Error(publicMessage) as AppError;
   error.status = status;
   error.code = code;

@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", routes);
 
 // Health check
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.json({ message: "Express TypeScript Boilerplate is running! 🚀" });
 });
 

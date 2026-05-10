@@ -165,3 +165,22 @@ npm install pg @types/pg
 5. Wait for review and approval
 
 See [RELEASE.md](./RELEASE.md) for details on the release process.
+
+## Changelog
+
+| Version | Date | Highlights |
+|---|---|---|
+| [1.0.7](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.7) | 2026-05-10 | Migrate to GitHub-native releases — remove bot commits to main, add CI workflow, branch protection |
+| [1.0.6](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.6) | 2025-10-11 | Update README with requirements, code quality tools, and framework details |
+| [1.0.4](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.4) | 2025-09-20 | Add configuration files for linting, formatting, and rules |
+| [1.0.0](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.0) | 2025-09-18 | Initial Express TypeScript boilerplate setup |
+
+See [GitHub Releases](https://github.com/antancelin/express-ts-backend-boilerplate/releases) for full history.
+
+## License
+
+MIT — see `LICENSE`
+
+---
+
+Made with Express.js by [Antoine Ancelin](https://github.com/antancelin)

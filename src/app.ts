@@ -1,20 +1,21 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
+import helmet from "helmet";
+import { env } from "./config/env";
+import { errorHandler } from "./middleware/errorHandler";
+import { notFound } from "./middleware/notFound";
 import routes from "./routes";
 
 const app = express();
 
-// Middlewares
-app.use(cors());
+app.use(helmet());
+app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
 app.use("/api", routes);
 
-// Health check
-app.get("/", (_req, res) => {
-  res.json({ message: "Express TypeScript Boilerplate is running! 🚀" });
-});
+app.use(notFound);
+app.use(errorHandler);
 
 export default app;

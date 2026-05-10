@@ -4,7 +4,7 @@ A ready-to-use boilerplate for quickly creating Express backends with TypeScript
 
 ## Requirements
 
-- Node.js >= 18.18.0
+- Node.js >= 22.0.0
 - npm or yarn
 
 ## Quick Start
@@ -168,6 +168,7 @@ See [RELEASE.md](./RELEASE.md) for details on the release process.
 
 ## Changelog
 
+- Updated all dependencies — TypeScript 6, ESLint 10, commitlint 21, Express 5.2
 - Migrated to GitHub-native releases — no bot commits to `main`, compatible with branch protection
 - Added CI workflow on pull requests (format, lint, typecheck, build)
 - Added branch protection on `main` — PR + CI required for external contributors

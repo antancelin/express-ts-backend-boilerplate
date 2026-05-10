@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 const REQUIRED_VARS = ["NODE_ENV", "CORS_ORIGIN"] as const;
 
 for (const key of REQUIRED_VARS) {

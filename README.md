@@ -205,6 +205,7 @@ See [RELEASE.md](./RELEASE.md) for details on the release process.
 
 ## Changelog
 
+- Added structured error handling (`AppError`, `createAppError`, `errorHandler`), `asyncHandler` wrapper, `notFound` catch-all, typed env validation, `helmet` security headers, and `src/config/`, `src/middleware/`, `src/types/` folder structure
 - Updated all dependencies — TypeScript 6, ESLint 10, commitlint 21, Express 5.2
 - Migrated to GitHub-native releases — no bot commits to `main`, compatible with branch protection
 - Added CI workflow on pull requests (format, lint, typecheck, build)

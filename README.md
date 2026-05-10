@@ -48,15 +48,22 @@ Your server will be running at `http://localhost:3000`
 
 ```
 src/
-├── controllers/    # Business logic
-├── routes/         # Route definitions
-├── middlewares/    # Custom middlewares
-├── utils/          # Utility functions
-├── config/         # Configuration files
-├── types/          # TypeScript type definitions
-├── app.ts          # Express app configuration
-└── server.ts       # Application entry point
+├── config/
+│   └── env.ts          # Validates process.env at startup, exports typed config
+├── middleware/
+│   ├── asyncHandler.ts  # Wraps async handlers, forwards errors to next()
+│   ├── errorHandler.ts  # Global Express error middleware
+│   └── notFound.ts      # 404 catch-all
+├── types/
+│   ├── index.ts         # AppError interface + createAppError factory
+│   └── express.ts       # Express.Request extension (add req.user etc. here)
+├── routes/
+│   └── index.ts         # Route definitions
+├── app.ts               # Express app configuration
+└── server.ts            # Entry point
 ```
+
+When adding features, create `src/controllers/` for HTTP handling and `src/services/` for business logic. These are intentionally absent from the boilerplate — they're always feature-specific.
 
 ## Default Endpoints
 
@@ -68,9 +75,38 @@ src/
 Copy `.env.example` to `.env` and configure:
 
 ```
-PORT=3000
-NODE_ENV=development
+PORT=3000              # optional, defaults to 3000
+NODE_ENV=development   # required: development | production | test
+CORS_ORIGIN=http://localhost:5173  # required: allowed origin for CORS
 ```
+
+`NODE_ENV` and `CORS_ORIGIN` are required — the server exits immediately with a clear error message if either is missing.
+
+## Error Handling
+
+Use `createAppError` to create typed errors anywhere in your code:
+
+```ts
+import { createAppError } from "./types";
+
+// In a service or controller:
+throw createAppError(404, "USER_NOT_FOUND", "User does not exist");
+// → responds with: { code: "USER_NOT_FOUND", message: "User does not exist" }
+```
+
+Use `asyncHandler` to wrap async route handlers — no `try/catch` needed:
+
+```ts
+import { asyncHandler } from "./middleware/asyncHandler";
+
+router.get("/users/:id", asyncHandler(async (req, res) => {
+  const user = await userService.findById(req.params.id);
+  if (!user) throw createAppError(404, "USER_NOT_FOUND", "User does not exist");
+  res.json(user);
+}));
+```
+
+Unhandled errors return `{ code: "INTERNAL_ERROR", message: "An unexpected error occurred" }`. Stack traces are included in non-production responses.
 
 ## What's Included
 
@@ -80,6 +116,7 @@ NODE_ENV=development
 - **TypeScript** - Type safety and better developer experience
 - **CORS** - Cross-origin resource sharing
 - **dotenv** - Environment variables management
+- **helmet** - Secure HTTP headers (XSS protection, clickjacking prevention, etc.)
 - **tsx** - Fast TypeScript execution with auto-reload
 
 ### Code Quality

@@ -168,12 +168,11 @@ See [RELEASE.md](./RELEASE.md) for details on the release process.
 
 ## Changelog
 
-| Version | Date | Highlights |
-|---|---|---|
-| [1.0.7](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.7) | 2026-05-10 | Migrate to GitHub-native releases — remove bot commits to main, add CI workflow, branch protection |
-| [1.0.6](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.6) | 2025-10-11 | Update README with requirements, code quality tools, and framework details |
-| [1.0.4](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.4) | 2025-09-20 | Add configuration files for linting, formatting, and rules |
-| [1.0.0](https://github.com/antancelin/express-ts-backend-boilerplate/releases/tag/v1.0.0) | 2025-09-18 | Initial Express TypeScript boilerplate setup |
+- Migrated to GitHub-native releases — no bot commits to `main`, compatible with branch protection
+- Added CI workflow on pull requests (format, lint, typecheck, build)
+- Added branch protection on `main` — PR + CI required for external contributors
+- Added ESLint, Prettier, and Commitlint configuration
+- Initial Express TypeScript boilerplate setup
 
 See [GitHub Releases](https://github.com/antancelin/express-ts-backend-boilerplate/releases) for full history.
 

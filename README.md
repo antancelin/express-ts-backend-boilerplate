@@ -9,7 +9,7 @@ A ready-to-use boilerplate for quickly creating Express backends with TypeScript
 
 ## Quick Start
 
-> **💡 This is a GitHub template!** Click **"Use this template"** above to create your own project.
+> **This is a GitHub template!** Click **"Use this template"** above to create your own project.
 
 ```bash
 # After creating your project from template:
@@ -20,7 +20,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Your server will be running at `http://localhost:3000` 🎉
+Your server will be running at `http://localhost:3000`
 
 ## Available Scripts
 
@@ -28,20 +28,21 @@ Your server will be running at `http://localhost:3000` 🎉
 
 - `npm run dev` - Development mode with auto-reload
 - `npm run build` - TypeScript compilation
+- `npm run typecheck` - Type-check without emitting files
 - `npm run start` - Production mode
 - `npm run clean` - Clean dist folder
 
 ### Code Quality
 
-- `npm run lint` - Run ESLint to check code quality
+- `npm run lint` - Run ESLint
 - `npm run lint:fix` - Fix ESLint issues automatically
 - `npm run format` - Format code with Prettier
-- `npm run format:check` - Check code formatting without modifying files
+- `npm run format:check` - Check formatting without modifying files
 
-### Release & Commits
+### Commits & Release
 
 - `npm run commitlint` - Validate commit message format
-- `npm run semantic-release` - Create automated release (CI only)
+- `npm run semantic-release` - Trigger a release (CI only)
 
 ## Project Structure
 
@@ -75,27 +76,68 @@ NODE_ENV=development
 
 ### Core Framework
 
-✅ **Express.js 5.x** - Fast and modern web framework  
-✅ **TypeScript** - Type safety and better developer experience  
-✅ **CORS** - Cross-origin resource sharing  
-✅ **dotenv** - Environment variables management  
-✅ **tsx** - Fast TypeScript execution with auto-reload
+- **Express.js 5.x** - Fast and modern web framework
+- **TypeScript** - Type safety and better developer experience
+- **CORS** - Cross-origin resource sharing
+- **dotenv** - Environment variables management
+- **tsx** - Fast TypeScript execution with auto-reload
 
 ### Code Quality
 
-✅ **ESLint** - Code linting with TypeScript support  
-✅ **Prettier** - Opinionated code formatter  
-✅ **Flat Config** - Modern ESLint configuration (eslint.config.mjs)
+- **ESLint** - Code linting with TypeScript support
+- **Prettier** - Opinionated code formatter
+- **Flat Config** - Modern ESLint configuration (`eslint.config.mjs`)
 
-### Release Management
+### CI/CD
 
-✅ **Semantic Release** - Automated versioning and releases  
-✅ **Commitlint** - Enforce conventional commit format  
-✅ **GitHub Actions** - CI/CD pipeline for releases
+- **GitHub Actions CI** - Runs on every PR: format check, lint, typecheck, build
+- **Semantic Release** - Automated versioning and GitHub Releases on merge to `main`
+- **Commitlint** - Enforces conventional commit format
+- **Branch protection** - `main` requires CI to pass and PR approval before merge
+
+## CI/CD Workflow
+
+### On pull requests
+
+The **CI** workflow runs automatically on every PR targeting `main`:
+
+```
+format:check → lint → typecheck → build
+```
+
+All checks must pass before the PR can be merged.
+
+### On merge to main
+
+The **Release** workflow runs the same checks, then triggers semantic-release:
+
+```
+format:check → lint → typecheck → build → release
+```
+
+semantic-release analyzes commit messages since the last release and, if a release is warranted, creates a **GitHub Release** with auto-generated notes. No commits are pushed back to `main` — the release lives entirely in GitHub Releases.
+
+### Commit convention
+
+Releases are driven by [Conventional Commits](https://www.conventionalcommits.org/):
+
+| Commit type | Version bump |
+|---|---|
+| `feat` | minor `1.x.0` |
+| `fix` | patch `1.0.x` |
+| `chore`, `docs`, `refactor` | patch `1.0.x` |
+| `feat!` / `BREAKING CHANGE` | major `x.0.0` |
+
+Examples:
+
+```bash
+git commit -m "feat(auth): add JWT token validation middleware"
+git commit -m "fix(api): resolve CORS issue for external domains"
+git commit -m "docs(readme): update installation instructions"
+git commit -m "chore(deps): update express to 5.1.0"
+```
 
 ## Easy Extensions
-
-Add more features with one command:
 
 ```bash
 # Security & Performance
@@ -114,76 +156,12 @@ npm install mongoose
 npm install pg @types/pg
 ```
 
-## Use as Template
-
-### For New Projects (Recommended)
-
-1. Click the **"Use this template"** button above
-2. Create your new repository with a custom name
-3. Clone and set up your project:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_NEW_PROJECT
-   cd YOUR_NEW_PROJECT
-   npm install
-   cp .env.example .env  # Configure your environment
-   npm run dev
-   ```
-4. Start building your API! 🎉
-
-### For Template Development
-
-If you want to improve this template itself:
-
-1. **Fork** this repository
-2. Make your improvements
-3. Submit a **pull request**
-
-> **💡 Tip:** Use "Use this template" for your projects, "Fork" only to contribute back to this template.
-
-## Release System
-
-This project uses **automated semantic releases** with GitHub Actions:
-
-### Commit Convention
-
-Use conventional commits for automatic versioning:
-
-```bash
-feat: add new feature       # → minor version bump (1.0.0 → 1.1.0)
-fix: fix a bug              # → patch version bump (1.0.0 → 1.0.1)
-docs: update documentation  # → patch version bump
-chore: update dependencies  # → patch version bump
-
-# Breaking changes → major version bump (1.0.0 → 2.0.0)
-feat!: breaking API change
-feat: new feature
-
-BREAKING CHANGE: API endpoint changed
-```
-
-### Manual Commits
-
-Create commits manually following the convention:
-
-```bash
-git add .
-git commit -m "feat(auth): add JWT token validation middleware"
-git commit -m "fix(api): resolve CORS issue for external domains"
-git commit -m "docs(readme): update installation instructions"
-```
-
-### Automatic Releases
-
-- Every push to `main` triggers a release check
-- Versions are bumped automatically based on commit types
-- Changelog is generated automatically
-- GitHub releases are created with release notes
-
 ## Contributing
 
-1. Fork the project
+1. Fork this repository
 2. Create a feature branch
-3. Use conventional commits (see examples above)
-4. Push to your fork and submit a pull request
+3. Follow the commit convention above
+4. Open a pull request — CI runs automatically
+5. Wait for review and approval
 
-Feel free to submit issues and pull requests!
+See [RELEASE.md](./RELEASE.md) for details on the release process.

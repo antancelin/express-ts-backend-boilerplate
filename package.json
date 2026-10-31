@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/antancelin/express-ts-backend-boilerplate#readme",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=26.12.1"
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -52,7 +52,7 @@
     "@semantic-release/github": "^12.0.10",
     "@semantic-release/release-notes-generator": "^14.0.1",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.5.2",
+    "@types/node": "^26.6.6",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",

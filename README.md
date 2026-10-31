@@ -4,7 +4,7 @@ A ready-to-use boilerplate for quickly creating Express backends with TypeScript
 
 ## Requirements
 
-- Node.js >= 22.0.0
+- Node.js >= 26.12.1
 - npm or yarn
 
 ## Quick Start
@@ -205,6 +205,7 @@ See [RELEASE.md](./RELEASE.md) for details on the release process.
 
 ## Changelog
 
+- Moved to Node 26 and updated all dependencies — dotenv 18, semantic-release 25, Express 5.3
 - Added structured error handling (`AppError`, `createAppError`, `errorHandler`), `asyncHandler` wrapper, `notFound` catch-all, typed env validation, `helmet` security headers, and `src/config/`, `src/middleware/`, `src/types/` folder structure
 - Updated all dependencies — TypeScript 6, ESLint 10, commitlint 21, Express 5.2
 - Migrated to GitHub-native releases — no bot commits to `main`, compatible with branch protection
